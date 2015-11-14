@@ -7,6 +7,7 @@ require 'rest-client'
 require 'scraperwiki'
 require 'wikidata/fetcher'
 require 'mediawiki_api'
+require 'rest-client'
 
 def members
   morph_api_url = 'https://api.morph.io/tmtmtmtm/honduras-national-congress-wikipedia/data.json'
@@ -26,4 +27,6 @@ WikiData.ids_from_pages('es', members.map { |c| c[:wikiname] }).each_with_index 
   end
   ScraperWiki.save_sqlite([:id], data)
 end
+
+warn RestClient.post ENV['MORPH_REBUILDER_URL'], {} if ENV['MORPH_REBUILDER_URL']
 
