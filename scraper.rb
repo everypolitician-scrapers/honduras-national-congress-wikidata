@@ -3,6 +3,6 @@
 
 require 'wikidata/fetcher'
 
-names = EveryPolitician::Wikidata.morph_wikinames(source: 'tmtmtmtm/honduras-national-congress-wikipedia', column: 'wikiname')
-EveryPolitician::Wikidata.scrape_wikidata(names: { es: names }, output: false)
+ids = EveryPolitician::Wikidata.morph_wikinames(source: 'tmtmtmtm/honduras-national-congress-wikipedia', column: 'id')
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids)
 
